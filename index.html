@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Bordo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h1>Diário de Bordo</h1>
+
+    <form id="diarioForm">
+        <input type="text" id="titulo" placeholder="Título" required>
+        <textarea id="conteudo" placeholder="Conteúdo" required></textarea>
+        <input type="date" id="data" required>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Minhas Entradas</h2>
+    <ul id="entriesList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>

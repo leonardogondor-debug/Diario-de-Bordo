@@ -1,0 +1,21 @@
+{
+    "name": "Diário de Bordo",
+    "short_name": "Diário",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#007bff",
+    "background_color": "#f5f5f5",
+
+    "icons": [
+        {
+            "src": "",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

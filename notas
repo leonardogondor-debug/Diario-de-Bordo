@@ -1,0 +1,59 @@
+Objetivo
+Desenvolver um Aplicativo Web Progressivo (PWA) chamado Diário de Bordo, que permita o registro de atividades diárias do usuário. A aplicação deve funcionar offline, permitir instalação na tela inicial e persistir os dados localmente.
+
+Requisitos
+Funcionalidades da Aplicação 
+
+Criar entradas com título, descrição e data.
+
+Listar as entradas já registradas.
+
+Permitir a remoção de entradas.
+
+Transformação em PWA 
+
+Adicionar e configurar o manifest.json com: 
+
+name, short_name, start_url, display, theme_color, background_color.
+
+Ícones nas resoluções 192x192 e 512x512.
+
+Registrar um service-worker.js funcional. 
+
+A aplicação deve continuar funcionando offline, mantendo as entradas salvas.
+
+Implementar o evento beforeinstallprompt para ativar a instalação na tela inicial.
+
+Persistência de Dados 
+
+Utilizar localStorage para salvar os dados de forma persistente no navegador.
+
+Responsividade 
+
+A interface deve se adaptar a dispositivos móveis e desktops.
+
+Entrega
+Subir o projeto em um repositório público no GitHub.
+
+O repositório deve conter: 
+
+index.html
+
+style.css
+
+script.js
+
+manifest.json
+
+service-worker.js
+
+Pasta de ícones (/icons)
+
+Compartilhe o link do repositório conforme instruções da plataforma.
+
+Dicas
+Utilize o Lighthouse do Chrome DevTools para testar se sua aplicação está sendo reconhecida como PWA.
+
+Use uma interface simples e funcional. Um formulário para adicionar e uma lista para visualizar já são suficientes.
+
+Mantenha a separação clara entre HTML, CSS e JS.
