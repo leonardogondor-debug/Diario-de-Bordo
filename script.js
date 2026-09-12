@@ -61,7 +61,9 @@ window.addEventListener("beforeinstallprompt", (e) => {
     deferredPrompt = e;
     const installBtn = document.createElement("button");
     installBtn.textContent = "Instalar App";
-    document.body.appendChild(installBtn);
+
+    document.getElementById("installArea").appendChild(installBtn);
+
     installBtn.addEventListener("click", () => {
         deferredPrompt.prompt();
     });
