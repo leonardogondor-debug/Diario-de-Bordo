@@ -66,5 +66,14 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
     installBtn.addEventListener("click", () => {
         deferredPrompt.prompt();
+
+        if (choiceResult.outcome === "accepted") {
+            console.log("Usuário aceitou o prompt de instalação");
+        } else {
+            console.log("Usuário recusou o prompt de instalação");
+        }
+
+        installBtn.remove();
+        deferredPrompt = null;
     });
 }); 
