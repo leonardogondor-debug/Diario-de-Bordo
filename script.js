@@ -59,21 +59,27 @@ let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    const installBtn = document.createElement("button");
-    installBtn.textContent = "Instalar App";
 
-    document.getElementById("installArea").appendChild(installBtn);
+    if (!document.getElementById("installBtn")) {
+        const installBtn = document.createElement("button");
+        installBtn.id = "installBtn";
+        installBtn.textContent = "Instalar App";
 
-    installBtn.addEventListener("click", () => {
-        deferredPrompt.prompt();
+        document.getElementById("installArea").appendChild(installBtn);
 
-        if (choiceResult.outcome === "accepted") {
-            console.log("Usuário aceitou o prompt de instalação");
-        } else {
-            console.log("Usuário recusou o prompt de instalação");
-        }
+        installBtn.addEventListener("click", () => {
+            deferredPrompt.prompt();
 
-        installBtn.remove();
-        deferredPrompt = null;
-    });
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("Usuário aceitou o prompt de instalação");
+                } else {
+                    console.log("Usuário recusou o prompt de instalação");
+                }
+
+                installBtn.remove();
+                deferredPrompt = null;
+            });
+        });
+    }
 }); 
