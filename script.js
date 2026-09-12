@@ -8,7 +8,9 @@ function loadEntries() {
     entries.forEach((entry, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-      <strong>${entry.data}</strong>: ${entry.titulo}<br>
+      <div>
+      <strong>${entry.data}</strong>: ${entry.titulo}
+      </div>
       ${entry.conteudo}
       <button onclick="removeEntry(${index})">Excluir</button>
     `;
@@ -44,12 +46,12 @@ loadEntries();
 // registrar service worker
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js")
-    .then((registration) => {
-        console.log("Service Worker registrado com sucesso:", registration);
-    })
-    .catch((error) => {
-        console.log("Falha ao registrar o Service Worker:", error);
-    });
+        .then((registration) => {
+            console.log("Service Worker registrado com sucesso:", registration);
+        })
+        .catch((error) => {
+            console.log("Falha ao registrar o Service Worker:", error);
+        });
 }
 
 // evento de instalacao
