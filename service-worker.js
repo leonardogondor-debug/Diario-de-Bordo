@@ -15,6 +15,20 @@ self.addEventListener("install", (event) => {
     );
 });
 
+// ao ativar, apaga caches de versões antigas
+self.addEventListener("activate", (event) => {
+    event.waitUntil(
+        caches.keys().then((keys) =>
+            Promise.all(
+                keys
+                    .filter((key) => key !== CACHE_NAME)
+                    .map((key) => caches.delete(key))
+            )
+        )
+    );
+});
+
+// responde com o cache e, se não tiver, busca na rede
 self.addEventListener("fetch", (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {

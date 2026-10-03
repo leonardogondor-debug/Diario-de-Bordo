@@ -2,33 +2,49 @@
 const entriesList = document.getElementById("entriesList");
 const diarioForm = document.getElementById("diarioForm");
 
+function getEntries() {
+    return JSON.parse(localStorage.getItem("entries")) || [];
+}
+
+function setEntries(entries) {
+    localStorage.setItem("entries", JSON.stringify(entries));
+}
+
 function loadEntries() {
-    const entries = JSON.parse(localStorage.getItem("entries")) || [];
+    const entries = getEntries();
     entriesList.innerHTML = "";
+
     entries.forEach((entry, index) => {
         const li = document.createElement("li");
-        li.innerHTML = `
-      <div>
-      <strong>${entry.data}</strong>: ${entry.titulo}
-      </div>
-      ${entry.conteudo}
-      <button onclick="removeEntry(${index})">Excluir</button>
-    `;
+
+        const cabecalho = document.createElement("div");
+        const data = document.createElement("strong");
+        data.textContent = entry.data;
+        cabecalho.append(data, `: ${entry.titulo}`);
+
+        const conteudo = document.createElement("p");
+        conteudo.textContent = entry.conteudo;
+
+        const btnExcluir = document.createElement("button");
+        btnExcluir.textContent = "Excluir";
+        btnExcluir.addEventListener("click", () => removeEntry(index));
+
+        li.append(cabecalho, conteudo, btnExcluir);
         entriesList.appendChild(li);
     });
 }
 
 function saveEntry(titulo, conteudo, data) {
-    const entries = JSON.parse(localStorage.getItem("entries")) || [];
+    const entries = getEntries();
     entries.push({ titulo, conteudo, data });
-    localStorage.setItem("entries", JSON.stringify(entries));
+    setEntries(entries);
     loadEntries();
 }
 
 function removeEntry(index) {
-    const entries = JSON.parse(localStorage.getItem("entries")) || [];
+    const entries = getEntries();
     entries.splice(index, 1);
-    localStorage.setItem("entries", JSON.stringify(entries));
+    setEntries(entries);
     loadEntries();
 }
 
