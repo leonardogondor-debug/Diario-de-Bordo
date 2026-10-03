@@ -5,6 +5,7 @@ Aplicativo web progressivo (PWA) para registrar entradas de diário com título,
 ## Deploy
 
 ```bash
+https://diario-de-bordo-pi-seven.vercel.app/
 ```
 
 ## Funcionalidades
